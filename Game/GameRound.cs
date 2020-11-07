@@ -38,12 +38,14 @@ namespace RockPaperScissors.Game
                 if(player1.Move.CanBeat(player2.Move) == GameResults.ResultsType.Win)
                 {
                     Console.WriteLine(player1.Name + " beats " + player2.Name);
+                    player1.IncrementScore();
                 } else if(player1.Move.CanBeat(player2.Move) == GameResults.ResultsType.Tie)
                 {
                     Console.WriteLine("Its a tie!");
                 } else
                 {
                     Console.WriteLine(player2.Name + " beats " + player1.Name);
+                    player2.IncrementScore();
                 }
             }
         }
