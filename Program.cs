@@ -8,20 +8,20 @@ using System.Security.Cryptography;
 namespace RockPaperScissors
 {
     class Program
-    {
+    { 
         public static (Boolean, BasePlayer) DetermineWinner(BasePlayer player1, BasePlayer player2, int totalRounds, int roundsPlayed)
         {
             if( (float)roundsPlayed/(float)totalRounds > 0.5)
             {
-                if(player1.Score > player2.Score)
+                if(player1.Score > player2.Score && ((float)player1.Score/roundsPlayed > 0.5))
                 {
                     return (true, player1);
-                } else if (player1.Score == player2.Score)
-                {
-                    return (false, null);
-                } else
+                } else if (player2.Score > player1.Score && ((float)player2.Score/roundsPlayed) > 0.5)
                 {
                     return (true, player2);
+                } else
+                {
+                    return (false, null);
                 }
             } else
             {
