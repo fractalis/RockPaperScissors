@@ -11,9 +11,10 @@ namespace RockPaperScissors.Game.Players
     {
         public ComputerPlayer(string name) : base(name)
         {
-            IComputerStrategy[] strategies = new IComputerStrategy[] { new RockStrategy() };
+            IComputerStrategy[] strategies = new IComputerStrategy[] { new RockStrategy(), new RandomStrategy() };
             Random rnd = new Random();
-            Strategy = strategies[rnd.Next(strategies.Length - 1)];
+            var idx = rnd.Next(strategies.Length);
+            Strategy = strategies[idx];
         }
 
         public IComputerStrategy Strategy { get; }
