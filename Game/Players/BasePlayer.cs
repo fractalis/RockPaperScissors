@@ -5,7 +5,7 @@ using RockPaperScissors.Game.Moves;
 
 namespace RockPaperScissors.Game
 {
-    class BasePlayer
+    abstract class BasePlayer
     {
         public BasePlayer(string name)
         {
@@ -14,8 +14,8 @@ namespace RockPaperScissors.Game
 
         public string Name { get; set; }
 
-        public IMoveType Move { get; }
+        public IMoveType Move { get; internal set; }
 
-
+        public abstract void GetMove();
     }
 }
