@@ -12,7 +12,7 @@ namespace RockPaperScissors.Game.Players
         {
         }
 
-        public IMoveType GetMove()
+        public override void GetMove()
         {
             while (true)
             {
@@ -25,11 +25,14 @@ namespace RockPaperScissors.Game.Players
                 switch (moveInp)
                 {
                     case "R":
-                        return new Rock();
+                        Move = new Rock();
+                        return;
                     case "S":
-                        return new Scissors();
+                        Move = new Scissors();
+                        return;
                     case "P":
-                        return new Paper();
+                        Move =  new Paper();
+                        return;
                     default:
                         Console.WriteLine("Invalid entry, please try again");
                         break;

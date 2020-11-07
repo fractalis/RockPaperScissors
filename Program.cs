@@ -1,4 +1,5 @@
 ﻿using RockPaperScissors.Game;
+using RockPaperScissors.Game.Players;
 using System;
 
 namespace RockPaperScissors
@@ -7,9 +8,18 @@ namespace RockPaperScissors
     {
         static void Main(string[] args)
         {
-            Rock rock = new Rock();
+            Console.WriteLine("Welcome to Rock-Paper-Scissors");
+            Console.WriteLine("Please enter your name: ");
+            string name = Console.ReadLine();
 
-            Console.WriteLine(rock.CanBeat(rock));
+            HumanPlayer humanPlayer = new HumanPlayer(name);
+            ComputerPlayer computerPlayer = new ComputerPlayer("AI Player");
+
+            GameRound round = new GameRound();
+            round.AddPlayer(humanPlayer);
+            round.AddPlayer(computerPlayer);
+            round.TakeTurn();
+            round.ScoreRound();
         }
     }
 }
